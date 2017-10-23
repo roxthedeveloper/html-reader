@@ -6,8 +6,10 @@ class OnePage extends React.Component {
     render() {
         return (
             <div>
+                <span>--start of page {this.props.pageInedx}--</span>
                 <div dangerouslySetInnerHTML={{__html: this.props.htmlData}}></div>
-                <hr/>
+                <span>--end of page {this.props.pageInedx}--</span>
+                <br />
             </div>
         )
     }

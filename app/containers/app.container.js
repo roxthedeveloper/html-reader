@@ -37,7 +37,7 @@ class AppContainer extends React.Component {
     render() {
         return (
           <div>
-            {this.state.sections.map(page =><OnePage key={page.id} htmlData={page.section} />)}
+            {this.state.sections.map(page =><OnePage key={page.id} pageInedx={page.id} htmlData={page.section} />)}
             <button onClick={this.getMyHTMLContent}>GO!</button>
           </div>
         );
@@ -54,10 +54,11 @@ class AppContainer extends React.Component {
 
                 //var elements = $(response.data);
                 var found = $(response.data).filter('#maincontent').html();
-                console.log(found);
+                console.log("Page["+_this.index+"] "+i);
+                //console.log(found);
 
-                _this.index += 1;
                 _this.setState({sections: [..._this.state.sections, {id: _this.index, section: found}]});
+                _this.index += 1;
             })
             .catch(function(err) {
                 console.log(err);
